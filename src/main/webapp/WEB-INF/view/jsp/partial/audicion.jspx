@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsaux="http://www.enxenio.es/tags/jsaux" xmlns:jsp="http://java.sun.com/JSP/Page">
+	<div class="empezar btn btn-sm btn-default" ng-class="{'btn-primary': !existePoligono(item.id)}" ng-disabled="outraAudicionReproducindose()" ng-hide="playing || existePoligono(item.id)">Escoitar</div>
+	<div ng-show="playing">Escoitando...</div>
+	<div class="pintar btn btn-sm btn-warning" ng-show="pintable" ng-disabled="outraAudicionReproducindose()">
+		<span ng-hide="pintado">Escoller zona</span>
+		<span  ng-show="pintado">Corrixir o debuxo</span>
+	</div>
+	<audio controls="" id="audio_{{item.id}}" ng-show="false" preload="auto">
+		<source ng-src="{{getItemUrl(item.id)}}" type="audio/mpeg"/>
+	</audio>
+	<div class="deter btn btn-sm btn-danger" ng-show="modoDebug() &amp;&amp; playing">Deter (DEBUG)</div>
+</jsp:root>

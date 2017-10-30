@@ -1,0 +1,5 @@
+package es.enxenio.ilga.pdmapping.modelo.entidades.informantes;
+
+public enum Ocupacion {
+	ESTUDANTE, FUNCIONARIO, DOMESTICO, AUTONOMO_PRIMARIO, AUTONOMO_SECUNDARIO, AUTONOMO_TERCIARIO, ALLEA_PRIMARIO, ALLEA_SECUNDARIO, ALLEA_TERCIARIO, PARO
+}

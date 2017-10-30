@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions
+  PUBLIC '-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN'
+  'http://tiles.apache.org/dtds/tiles-config_2_0.dtd'>
+<tiles-definitions>
+	<definition name="partials/inicio" template="/WEB-INF/view/jsp/partial/inicio.jspx"/>
+	<definition name="partials/formulario" template="/WEB-INF/view/jsp/partial/formulario.jspx"/>
+	<definition name="partials/formulario-lingua" template="/WEB-INF/view/jsp/partial/formulario-lingua.jspx"/>
+	<definition name="partials/formulario-audicions" template="/WEB-INF/view/jsp/partial/formulario-audicions.jspx"/>
+	<definition name="partials/mapa" template="/WEB-INF/view/jsp/partial/mapa.jspx"/>
+	<definition name="partials/cuestionario" template="/WEB-INF/view/jsp/partial/cuestionario.jspx"/>
+	<definition name="partials/audicion" template="/WEB-INF/view/jsp/partial/audicion.jspx"/>
+	<definition name="partials/instruccions-audicions" template="/WEB-INF/view/jsp/partial/instruccions-audicions.jspx"/>
+	<definition name="partials/instruccions-formulario" template="/WEB-INF/view/jsp/partial/instruccions-formulario.jspx"/>
+	<definition name="partials/remate" template="/WEB-INF/view/jsp/partial/remate.jspx"/>
+</tiles-definitions>

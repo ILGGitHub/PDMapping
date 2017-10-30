@@ -1,0 +1,391 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "reset";
+
+html {
+	height: 100%;
+	margin: auto auto 0;
+	background: lightgrey;
+}
+
+body {
+	min-width: 900px;
+	text-align: center;
+	min-height: 100%;
+}
+
+.header {
+	padding-bottom: 20px;
+
+	span {
+		color: #908f83;
+		font-size: 24px;
+		font-variant: small-caps;
+	}
+}
+
+.view {
+	text-align: center;
+	margin: auto;
+
+	.subtitulo {
+		margin-top: 0px;
+	}
+
+	.benvida {
+		margin-top: 100px;
+		margin-bottom: 100px;
+	}
+
+	.titulo {
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.titulo-col {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	.formulario {
+		.identificador {
+			position: relative;
+			left: 740px;
+			width: 160px;
+			font-weight: 700;
+			height: 50px;
+			font-size: 24px;
+
+			@media screen and (max-width: 768px) {
+				position: relative;
+				left: 0px;
+				right: 0px;
+				width: 100%;
+				margin-bottom: 15px;
+			}
+		}
+
+		input[type=radio], input[type=checkbox] {
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			margin: 0px;
+			margin-right: 3px;
+		}
+
+		.checkbox-label {
+			vertical-align: 4px;
+			margin-right: 20px;
+		}
+
+		.salto-col {
+			height: 34px;
+			margin-bottom: 15px;
+		}
+
+		.info {
+			margin-top: 20px;
+			margin-bottom: 5px;
+			font-size: 12px;
+		}
+
+		button[type=submit] {
+			margin-bottom: 15px;
+			margin-top: 15px;
+		}
+	}
+
+	.mapa {
+		.mapa-container {
+			margin: auto;
+			width: 633px;
+		}
+
+		.botones-container {
+			width: 400px;
+			padding: 0px;
+		}
+
+		.audicion-container {
+			margin-top: 10px;
+			margin-bottom: 20px;
+
+			.id-audicion {
+				font-weight: 700;
+				font-size: 16px;
+				margin-right: 15px;
+			}
+
+			.btn {
+				min-width: 90px;
+				margin-right: 3px;
+			}
+
+		}
+
+		.mensaje-debuxa {
+			margin: 50px 10px 30px 10px;
+			font-size: 16px;
+		}
+	}
+
+	.cuestionario {
+		margin: auto;
+		text-align: left;
+		width: 60%;
+		// min-width: 700px;
+
+
+		label {
+			margin-bottom: 4px;
+		}
+
+		input[type=radio], input[type=checkbox] {
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			// margin: 0px;
+		}
+
+		.checkbox-label {
+			vertical-align: 4px;
+			margin-right: 20px;
+		}
+
+		select.form-control {
+			// margin: auto;
+			// width: initial;
+		}
+
+		.pregunta {
+			margin-bottom: 20px;
+			padding: 5px;
+			// border-bottom: 1px solid lightgrey;
+			// border-top: 1px solid lightgrey;
+		}
+
+		button[type=submit] {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		textarea { 
+			max-width: 100%;
+		}
+
+		.form-control {
+			margin-top: 5px;
+		}
+
+	}
+
+	.botonera {
+		button {
+			margin-right: 10px;
+		}
+	}
+}
+
+.leaflet-control-layers-toggle, .leaflet-control-zoom {
+	display: none;
+}
+
+svg.tracer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2001;
+	pointer-events: none;
+}
+
+.mode-create {
+	cursor: crosshair;
+
+	div.polygon-elbow {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+.mode-edit div.polygon-elbow {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.leaflet-container {
+	background: #a6bddb;
+	border: 1px solid black;
+}
+
+.a {
+	cursor: pointer;
+}
+
+.mapa-cuestion {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.mapa-cuestion .pouco {
+  margin-right: 280px;
+}
+
+.boton-contador-audicion {
+	display: inline-block;
+	width: 134px;
+	background-color: #cbcbcb;
+	border: 2px solid #5f5e5e;
+	border-radius: 10px;
+	padding: 20px;
+	font-weight: bold;
+	margin-bottom: 120px;
+}
+
+.contenedor {
+	background-color: #d4edfc;
+	border: 2px solid #3b51ca;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.contenedor-informativo {
+	font-size: large;
+	margin-top: 100px;
+
+	div {
+		font-size: larger;
+		margin-top: 20px;
+	}
+}
+
+.contenedor-audicion-mapa { 
+	height: 454px; 
+	padding: 20px;
+}
+.contenedor-botonera-mapa { 
+	height: 96px;
+}
+
+.contenedor-formulario-linguas {
+	text-align: left;
+	padding: 20px;
+
+	label {
+		font-weight: normal;
+	}
+
+	.resposta {
+		padding-left: 20px;
+
+		label {
+			margin-right: 50px;
+		}
+	}
+
+	.pregunta {
+		margin-bottom: 10px;
+	}
+
+	select {
+		width: 40%;
+	}
+}
+
+.logo {
+	width: 130px;
+	margin: 10px;
+}
+
+.btn-comezar {
+	margin: 20px;
+}
+
+.breadcrumb {
+	text-align: left;
+	width: 100%;
+	background-color: #666666;
+
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+
+	color: white;
+	font-weight: bold;
+}
+
+.btn {
+	color: black;
+	font-weight: bold;
+	padding: 10px 30px 10px 30px;
+}
+
+$ancho: 1018px;
+
+.ancho {
+	width: $ancho;
+}
+
+.ancho2 {
+	width: $ancho/2;
+}
+
+.ancho-informativo {
+	width: $ancho*2/3;
+}
+
+.super-contenedor{
+	display: inline-table;
+}
+
+.btn-primary {
+	color: white;
+}
+
+div.smaller {
+	font-size: smaller;
+}
+
+/*Chrome*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	input[type='range'] {
+		overflow: hidden;
+		-webkit-appearance: none;
+		background-color: #e3ddd8;
+	}
+
+	input[type='range']::-webkit-slider-runnable-track {
+		height: 10px;
+		-webkit-appearance: none;
+		color: #13bba4;
+		margin-top: -1px;
+	}
+
+	input[type='range']::-webkit-slider-thumb {
+		width: 30px;
+		-webkit-appearance: none;
+		height: 10px;
+		cursor: ew-resize;
+		background: #434343;
+	}
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+}
+
+input[type="range"]::-moz-range-track {
+	background-color: #e3ddd8;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+}
+
+input[type="range"]::-ms-fill-upper {
+	background-color: #e3ddd8;
+}

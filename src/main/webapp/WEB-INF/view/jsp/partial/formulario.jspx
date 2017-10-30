@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsaux="http://www.enxenio.es/tags/jsaux" xmlns:jsp="http://java.sun.com/JSP/Page">
+	<div class="breadcrumb">
+		<li>Inicio</li>
+		<li>Datos do informante</li>
+	</div>
+	<div class="super-contenedor">
+		<div class="formulario ancho">
+			<div class="contenedor">
+				<div class="titulo">Datos do informante</div>
+			</div>
+			<form class="form-horizontal">
+				<div class="contenedor">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="anoNacemento">Ano de nacemento</label>
+						<div class="col-sm-5">
+							<input class="form-control" id="anoNacemento" max="{{f.nacemento.ata}}" min="{{f.nacemento.dende}}" ng-model="f.informante.anoNacemento" placeholder="Indicar ano entre {{f.nacemento.dende}} e {{f.nacemento.ata}}" type="number"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Sexo</label>
+						<div class="col-sm-3">
+							<input class="form-control" name="sexo" ng-model="f.informante.sexo" type="radio" value="H"/>
+							<span class="checkbox-label control-label">Home</span>
+							<input class="form-control" name="sexo" ng-model="f.informante.sexo" type="radio" value="M"/>
+							<span class="checkbox-label control-label">Muller</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="estudos">Nivel de estudos</label>
+						<div class="col-sm-5">
+							<select class="form-control" id="estudos" ng-model="f.informante.estudos" ng-options="item as item | etiquetaEstudo for item in f.posiblesEstudos"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="ocupacion">Ocupación</label>
+						<div class="col-sm-5">
+							<select class="form-control" id="ocupacion" ng-model="f.informante.ocupacion" ng-options="item as item | etiquetaOcupacion for item in f.posiblesOcupacions"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contenedor">
+							<div class="titulo-col">Lugar de nacemento</div>
+							<div class="salto-col"/>
+							<div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nacemento_provincia">Provincia</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="nacemento_provincia" ng-change="f.actualizarMunicipios(false, f.informante.nacemento.provincia)" ng-model="f.informante.nacemento.provincia" ng-options="item.codigo as item.nome for item in f.combo.provincias | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nacemento_concello">Concello</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="nacemento_concello" ng-change="f.actualizarParroquias(false, f.informante.nacemento.municipio)" ng-model="f.informante.nacemento.municipio" ng-options="item.codigo as item.nome for item in f.combo.nacemento.municipios | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nacemento_lugar">Lugar</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="nacemento_lugar" ng-model="f.informante.nacemento.lugar" ng-options="item.codigo as item.nome for item in f.combo.nacemento.lugares | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nacemento_outro">Outro</label>
+									<div class="col-sm-9">
+										<textarea class="form-control" id="nacemento_outro" ng-model="f.informante.nacemento.outro" rows="3"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="contenedor">
+							<div class="titulo-col">Lugar de residencia</div>
+							<div class="form-group salto-col">
+								<input class="form-control" id="nacemento_igual_residencia" ng-change="f.comprobarResidenciaIgualNacemento()" ng-model="f.residenciaIgualNacemento" type="checkbox"/>
+								<label class="checkbox-label control-label" for="nacemento_igual_residencia">Igual ao lugar de nacemento</label>
+							</div>
+							<div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="residencia_provincia">Provincia</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="residencia_provincia" ng-change="f.actualizarMunicipios(true, f.informante.residencia.provincia)" ng-disabled="f.residenciaIgualNacemento" ng-model="f.informante.residencia.provincia" ng-options="item.codigo as item.nome for item in f.combo.provincias | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="residencia_concello">Concello</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="residencia_concello" ng-change="f.actualizarParroquias(true, f.informante.residencia.municipio)" ng-disabled="f.residenciaIgualNacemento" ng-model="f.informante.residencia.municipio" ng-options="item.codigo as item.nome for item in f.combo.residencia.municipios | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="residencia_lugar">Lugar</label>
+									<div class="col-sm-9">
+										<select class="form-control" id="residencia_lugar" ng-disabled="f.residenciaIgualNacemento" ng-model="f.informante.residencia.lugar" ng-options="item.codigo as item.nome for item in f.combo.residencia.lugares | orderBy: 'nome'"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="residencia_outro">Outro</label>
+									<div class="col-sm-9">
+										<textarea class="form-control" id="residencia_outro" ng-disabled="f.residenciaIgualNacemento" ng-model="f.informante.residencia.outro" rows="3"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="contenedor">
+							<div class="titulo-col">Lugar de nacemento dos pais</div>
+							<div class="form-group">
+								<div>
+									<input class="form-control" type="radio" name="lugarPais" id="lugarPaisSi" ng-model="f.informante.lugarNacementoPaisCoincide" ng-value="true">
+										<label for="lugarPaisSi">Igual ao do informante</label>
+									</input>
+								</div>
+								<div>
+									<input class="form-control" type="radio" name="lugarPais" id="lugarPaisNon" ng-model="f.informante.lugarNacementoPaisCoincide" ng-value="false">
+										<label for="lugarPaisNon">Distinto ao do informante</label>
+									</input>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contenedor">
+					<div class="row">
+						<div class="titulo-col">
+							<span>Outros lugares de residencia (período superior a 3 meses)</span>
+						</div>
+						<div class="col-sm-5 col-sm-offset-1">
+							<div class="form-group salto-col">
+								<input class="form-control" id="nacemento_pais_coincide" ng-model="f.informante.viviuForaDeGalicia" type="checkbox"/>
+								<label class="checkbox-label control-label" for="nacemento_pais_coincide">Viviu fóra de Galicia</label>
+							</div>
+							<div class="form-group" ng-show="f.informante.outrosLugaresDeResidencia.length &gt; 0">
+								<label class="col-sm-3 control-label">Concellos</label>
+								<div class="col-sm-9">
+									<div class="input-group">
+										<div class="form-control">{{f.informante.outrosLugaresDeResidencia[0].nome}}</div>
+										<span class="a glyphicon glyphicon-remove input-group-addon" ng-click="f.eliminarResidencia(f.informante.outrosLugaresDeResidencia[0])" style="top: 0px;"></span>
+									</div>
+								</div>
+							</div>
+							<div class="form-group" ng-repeat="lugar in f.informante.outrosLugaresDeResidencia" ng-hide="$first">
+								<div class="col-sm-9 col-sm-offset-3">
+									<div class="input-group">
+										<div class="form-control">{{lugar.nome}}</div>
+										<span class="a glyphicon glyphicon-remove input-group-addon" ng-click="f.eliminarResidencia(lugar)" style="top: 0px;"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-5">
+							<div class="form-group salto-col">
+								<span>Engadir outros lugares de residencia en Galicia</span>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="auxiliar_provincia">Provincia</label>
+								<div class="col-sm-9">
+									<select class="form-control" id="auxiliar_provincia" ng-change="f.actualizarAuxiliar()" ng-model="f.auxiliar.provincia" ng-options="item.codigo as item.nome for item in f.combo.provincias | orderBy: 'nome'"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label" for="auxiliar_concello">Concello</label>
+								<div class="col-sm-9">
+									<select class="form-control" id="auxiliar_concello" ng-model="f.auxiliar.municipio" ng-options="item as item.nome for item in f.auxiliar.municipios | orderBy: 'nome'"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="btn btn-primary" ng-click="f.engadirResidencia()">Engadir</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contenedor">
+					<div class="botonera">
+						<div class="info" ng-hide="f.validarDatos(f.informante)">É necesario completar todos os campos.</div>
+						<button class="btn btn-success" ng-class="{'btn-danger' : !f.validarDatos(f.informante)}" ng-click="f.enviar()" ng-disabled="!f.validarDatos(f.informante)" type="submit">Continuar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</jsp:root>

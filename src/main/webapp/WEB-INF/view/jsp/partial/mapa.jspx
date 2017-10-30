@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsaux="http://www.enxenio.es/tags/jsaux" xmlns:jsp="http://java.sun.com/JSP/Page">
+	<div class="breadcrumb">
+		<li>Inicio</li>
+		<li>Datos do informante</li>
+		<li>Audicións</li>
+	</div>
+	<div class="super-contenedor">
+		<div class="formulario ancho">
+			<div class="contenedor">
+				<div class="titulo">Audicións</div>
+			</div>
+			<div class="mapa">
+				<div class="row">
+					<div class="col-sm-8 mapa-container">
+						<leaflet center="m.center" height="570px" layers="m.layers"/>
+					</div>
+					<div class="col-sm-4 botones-container">
+						<div class="contenedor contenedor-audicion-mapa">
+							<audicion-grupo start-drawing="m.startDrawing" view-drawing="m.viewDrawing">
+								<div class="boton-contador-audicion">
+									Audición {{m.contador + 1}}
+								</div>
+								<any ng-hide="m.busy">
+									<div class="audicion-container" ng-repeat="aud in m.audicions" ng-show="$index == m.contador">
+										<audicion existe-poligono="m.existePoligono(aud.id)" item="aud"/>
+									</div>
+								</any>
+								<div ng-show="m.busy">
+									<div class="mensaje-debuxa">Debuxa a zona da audición no mapa</div>
+								</div>
+							</audicion-grupo>
+							<div class="mapa-cuestion" ng-show="m.existePoligono(m.audicions[m.contador].id)">
+								<div>Canto se parece esta forma de falar á túa?</div>
+								<div>
+									<span class="pouco">Pouco</span>
+									<span class="moito">Moito</span>
+									<input type="range" ng-model="m.parecidos[m.audicions[m.contador].id]" min="0" max="5" step="1"/>
+								</div>
+							</div>
+						</div>
+						<div class="contenedor contenedor-botonera-mapa">
+							<div class="botonera">
+								<button class="btn btn-danger" ng-hide="m.busy" type="submit" ui-sref="inicio">Saír</button>
+								<button class="btn btn-warning" ng-click="m.contador = m.contador + 1" type="submit" ng-show="m.existePoligono(m.audicions[m.contador].id) &amp;&amp; !m.todosEscoitados()">Seguinte</button>
+								<button class="btn btn-success" ng-class="{'btn-success': m.todosEscoitados()}" ng-click="m.enviar(false)" ng-show="!m.busy &amp;&amp; m.todosEscoitados()" type="submit">Continuar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</jsp:root>

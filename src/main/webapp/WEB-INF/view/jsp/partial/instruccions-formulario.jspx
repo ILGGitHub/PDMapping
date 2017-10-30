@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsaux="http://www.enxenio.es/tags/jsaux" xmlns:jsp="http://java.sun.com/JSP/Page">
+	<div class="breadcrumb">
+		<li>Inicio</li>
+		<li>Datos do informante</li>
+	</div>
+
+	<div class="super-contenedor">
+		<div class="contenedor contenedor-informativo ancho-informativo">
+			<div>Esta enquisa forma parte dun estudo sobre a percepción dos diferentes dialectos do galego. Coa túa colaboración axudarás a coñecer mellor a realidade lingüística de Galicia.</div>
+			<div>A enquisa é anónima e os datos usaranse con fins académicos.</div>
+			<div>Aconséllase o uso de auriculares.</div>
+			<div>Agradecemos moito a túa participación!</div>
+			<div class="smaller">Se queres obter máis información pulsa <a href="http://goo.gl/76GRUF">aquí</a>.</div>
+			<a ui-sref="formulario" class="btn btn-success btn-comezar">Comezar a enquisa</a>
+		</div>
+	</div>
+</jsp:root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jsp:root version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsaux="http://www.enxenio.es/tags/jsaux" xmlns:jsp="http://java.sun.com/JSP/Page">
+	<div class="breadcrumb">
+		<li>Inicio</li>
+		<li>Datos do informante</li>
+		<li>Audicións</li>
+		<li>Fin</li>
+	</div>
+
+	<div class="super-contenedor">
+		<div class="contenedor contenedor-informativo ancho-informativo">
+			<div>Os datos gardáronse correctamente.</div>
+			<div>Moitas grazas pola túa colaboración!</div>
+			<a ui-sref="inicio" class="btn btn-success btn-comezar">Nova enquisa</a>
+		</div>
+	</div>
+</jsp:root>

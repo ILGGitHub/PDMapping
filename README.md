@@ -17,7 +17,7 @@ You have to install the following software components:
 * [PostgreSQL](https://www.postgresql.org/). We are currently using version 9.5.x
 * [PostGIS](https://postgis.net/). We are currently using version 2.2.x.
 * [Geoserver](http://geoserver.org/). We are currently using version 2.9.x.
-* [Node.js](https://nodejs.org/). In this project, We only use npm to manage JavaScript packages, so any Node.js version will probably work.
+* [Node.js](https://nodejs.org/). Any version from 6.x.
 * [Maven](https://maven.apache.org/). We use version 3.5.x
 
 ### Building the project in the development environment
@@ -84,7 +84,7 @@ mvn install
 mvn jetty:run
 ```
 
-2) The client-side of the application can be modified in real-time by processing the sass files in watch mode:
+2) Styles in the client-side of the application are implemented using [sass](https://sass-lang.com/) instead of plain css. To update the final css files in real-time during development, run this npm command:
 
 ```
 npm run sass
@@ -103,7 +103,7 @@ The file can be found in the ```target``` folder.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system.
+Additional notes about how to deploy this on a live system.
 
 ### Prerequisites
 
